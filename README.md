@@ -27,6 +27,15 @@ displayed count always equals the list length) and validated 1:1 against the
 source dataset's own statistics. Regenerate with `scripts/export_roots_v2.py`
 (reads the [tafsir-mcp](https://pypi.org/project/tafsir-mcp/) SQLite database).
 
+`surah/` — per-surah scholarly info (added in `v2.1`, for "About this Surah"):
+
+| File | Description |
+| --- | --- |
+| `goals.json` | `"surahNo" → maqsad` — the surah's one-line goal/purpose, all 114 in ~12KB (fetched once). |
+| `<n>.json` | `{ no, goal, names, fadael, nuzool }` — the surah's names, virtues and revelation notes, fetched lazily per surah. Inline footnote markers from the source (`¬…¥`) are rendered as parentheses; content otherwise verbatim. |
+
+Regenerate with `scripts/export_surah_info.py`.
+
 ## Source & License
 
 The scholarly study content (i'rab, qiraat, asbab al-nuzul, word meanings, tajweed,
